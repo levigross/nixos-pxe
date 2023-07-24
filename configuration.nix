@@ -2,7 +2,7 @@
 {
 
   imports = [
-    (modulesPath + "/installer/netboot/netboot-minimal.nix")
+    (modulesPath + "/installer/netboot/netboot.nix")
   ];
 
 
@@ -15,8 +15,6 @@
     supportedFilesystems = [ "zfs" ];
     kernelModules = [ "kvm-intel" "veth" ];
   };
-
-
 
   networking.dhcpcd.enable = true;
 

@@ -9,7 +9,7 @@
 
   outputs = { self, nixpkgs, sops-nix, ... }:
     let
-      system = "aarch64-linux";
+      system = "x86_64-linux";
     in
     {
       nixosConfigurations = {
@@ -21,6 +21,7 @@
           ];
         };
       };
+      formatter.${system} = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       packages.${system}.default = nixpkgs.legacyPackages.${system}.symlinkJoin {
         name = "netboot";
         paths = with self.nixosConfigurations.generic.config.system.build; [
